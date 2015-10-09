@@ -1,0 +1,53 @@
+# NetApp
+
+Brian McKean from NetApp presented to the class a data analysis problem he'd
+like to get some help on.
+
+# Overview
+
+Listen to his presentation carefully. Write down the answers to the following
+questions to show your team's understanding of the basics of the problem.
+
+## What is the problem?
+
+
+## Why is the problem importnat?
+
+
+## What dataset has been made available?
+
+
+## What specific questions are being raised?
+
+
+# Q/A session
+
+We will run a Q/A session. Before the session, compile a list of questions you
+want to ask. Then, teams will take turn to ask Brian follow up questions.
+Each team gets to ask one question each time. Write down the questions your team
+wanted to ask and the answers you received. If another team happens to ask the
+same question, simply write down the answer you heard.
+
+## Is there any data on the number of writes?
+No data on the number of writes.
+## What is the ideal behavior?
+One ASUP per day, per system.
+## Is there any known bug with the observation time?
+No, only with base time.
+
+# Approach
+
+Based on the information you've obtained during the Q/A session, come up with
+plan how your team will tackle this problem.
+
+## How should the dataset be imported into Tableau?
+It's already a csv file, so we should be able to simply import it as a data source.
+
+## How should the work be distributed among the team members?
+We each decided to look at two questions and pick the one that was represented best in Tableau and use that one for our final report. We then reconvene with our findings to make the final report.
+
+## What types of charts or visualizations to use to support the answer?
+Mainly bar charts and scatter plots to show the differences.
+
+## What questions may be too complex for Tableau and may require custom scripts to be written?
+Questions that would need a heavy amount of data cutting and manipulation would most likely be too complex for Tableu. You can filter through the data in Tableau, but doing so may impede you from making accurate conclusions about the data.
