@@ -90,21 +90,20 @@ I computed the average delta times for each firmware version and put it into thr
 (answer)
 
 
-# [John Raesly](http://github.com/jraesly):
+# [John Raesly](http://github.com/jraesly):  Is there a correlation between delta time and date?
 
-(answer)
+![screenshot](netapp.png)
 
+It does seem that there is a correlation between date and delta time. The delta time has decreased over time dramatically. This brings a follow up question of why this is happening?
 
 # Further Analysis
 
 Our team determines the following questions are too complex for Tableau and
 require custom scripts to be written.
 
-* (Question)
-* (Question)
-* (Question)
-* (Question)
-
+* Is there a relationship between 'delta time' and 'Release'?
+* Is there a relationship between delta time and SW version?
+* How are the delta times distributed by system?
 
 # Python Approach
 
