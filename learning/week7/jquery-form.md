@@ -46,25 +46,54 @@ $('button#show').click(function(){
 })
 
 $('button#setcolor').click(function(){    
-    // TODO: set the background color of the viz window to the specified color
-    $('.myviz').css('background-color','TODO')
+    var value = $('input#setcolor').val()
+	console.log(value)
+    $('.myviz').css('background-color', value)
 })
 
-// TODO: add an event handler for "Set Height" button to set the height of the
-// viz window to the specified value
+$('button#setheight').click(function(){    
+    var value = $('input#setheight').val()    
+    console.log(value)
+    $('.myviz').height(value)
+})
 
-// TODO: add an event handler for "Show Bars (1)" to display a specified number of
-// vertical bars
 $('button#bars1').click(function(){    
-    var svg = "<svg><rect height='50' width='10'/><rect height='50' width='10' x='20'/></svg>"
+    var value = $('input#bars1-number').val()    
+    console.log(value)
+	var svg = "<svg>"
+	for(i = 0; i < value; i++){
+		svg += "<rect height='50' width='10' x='" + i*20 + "' />"
+	}
+	svg += "</svg>"
     $('.myviz').html(svg)    
 })
 
-// TODO: add an event handler for "Show Bars (2)" to display a specified number of
-// vertical bars in the specified color
+$('button#bars2').click(function(){    
+    var value1 = $('input#bars2-number').val()    
+    console.log(value1)
+	var value2 = $('input#bars2-color').val()
+	console.log(value2)
+	var svg = "<svg>"
+	for(i = 0; i < value1; i++){
+		svg += "<rect height='50' width='10' x='" + i*20 + "' style ='fill:" + value2 + "'/>"
+	}
+	svg += "</svg>"
+    $('.myviz').html(svg)    
+})
 
-// TODO: add an event handler for "Show Bars (3)" to display a specified number of
-// vertical bars in the specified color at the specified height
+$('button#bars3').click(function(){    
+    var value1 = $('input#bars3-number').val()    
+    console.log(value1)
+	var value2 = $('input#bars3-color').val()
+	console.log(value2)
+	var value3 = $('input#bars3-height').val()
+	var svg = "<svg>"
+	for(i = 0; i < value1; i++){
+		svg += "<rect height='" + value3 + "' width='10' x='" + i*20 + "' style ='fill:" + value2 + "'/>"
+	}
+	svg += "</svg>"
+    $('.myviz').html(svg)    
+})
 
 
 {% endscript %}
