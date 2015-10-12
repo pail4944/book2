@@ -119,7 +119,7 @@ function vizGroupByAttribute(attributeName){
                                 stroke-width:3; \
                                 stroke:rgb(0,0,0)" />   \
 						<text transform="translate(${d.width+10} 15)"> ${d.label1} </text>\
-						<text transform="translate(${d.width+30} 15)"> ${d.label2} </text> \
+						<text transform="translate(${d.width+100} 15)"> ${d.label2} </text> \
                     </g>'
 
     // compile the string to get a template function
@@ -144,7 +144,7 @@ function vizGroupByAttribute(attributeName){
 		return d.name
 	}
 	function computeLabel2(d, i){
-		return d.length
+		return d.count
 	}
     var viz = _.map(dataArray, function(d, i){
                 return {
@@ -152,7 +152,8 @@ function vizGroupByAttribute(attributeName){
                     y: computeY(d, i),
                     width: computeWidth(d, i),
                     color: computeColor(d, i),
-					label1: computeLabel1(d, i)
+					label1: computeLabel1(d, i), 
+					label2: computeLabel2(d, i)
 				}
              })
     console.log('viz', viz)
