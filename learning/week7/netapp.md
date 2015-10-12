@@ -87,7 +87,10 @@ I computed the average delta times for each firmware version and put it into thr
 
 # [Andrew Krodinger](http://github.com/drewdinger): Is there any correlation between which controller sent the data and the median delta time?
 
-(answer)
+
+![screenshot](controller.png)
+
+No, there is no correlation between the controller and the median time. Both Controllers A and B are within a 1% difference between the median time and 24 hours (86,400 seconds). Controller A's time is 99.85% of a day and Controller B's median time is 99.995% of a day. This shows me that both controllers are functioning properly for the most part. We can draw no correlation between which controller sent the data and the amount of bad data that was received. What we can see is that when data is asked to be sent from Controller B instead of the primary Controller A, there is no significant change in the median delta time. From this data I believe that it is unnecessary to continue to retrieve Controller information. This would reduce the size of the data that Brian is collecting, or would allow him to replace the Controller section of data with one that may provide more insight into what is really going on.
 
 
 # [John Raesly](http://github.com/jraesly):  Is there a correlation between delta time and date?
@@ -375,7 +378,7 @@ clean_data.head()
       <td>07.86.29.00</td>
       <td>10.86.0G08.0017</td>
     </tr>
-    <tr>
+    <tr>*
       <th>2</th>
       <td>01/01/2015</td>
       <td>1032FG000284</td>
