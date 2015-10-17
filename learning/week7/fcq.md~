@@ -118,7 +118,7 @@ function vizGroupByAttribute(attributeName){
                          style="fill:${d.color};    \
                                 stroke-width:3; \
                                 stroke:rgb(0,0,0)" />   \
-<text transform="translate(${d.width+10} 15)"> ${d.label} </text>\
+<text transform="translate(${d.width+10} 15)"> ${d.label1} </text>\
                     </g>'
 
     // compile the string to get a template function
@@ -148,7 +148,7 @@ function vizGroupByAttribute(attributeName){
                     y: computeY(d, i),
                     width: computeWidth(d, i),
                     color: computeColor(d, i),
-		    label: computeLabel(d, i)
+		    label1: computeLabel1(d, i)
 		}
              })
     console.log('viz', viz)

@@ -28,11 +28,11 @@ Three example of specific questions in this class are:
 *  What Longitude in Texas has the most stars?
 
 
-## Parker Illig: What's the avg rating (X) in city (Y)?
+## Parker Illig: What's the most popular category (X) in state (Y)?
 Three example of specific questions in this class are:
-* What's the most avg rating in Pittsburgh?
-* What's the most avg rating in Raleigh?
-* What's the most avg rating in Phoenix?
+* What's the most popular category in Pennsylvania?
+* What's the most popular category in North Carolina?
+* What's the most popular category in Arizona?
 
 ## What businesses in city (X) have closing hours (Y) with a rating of (Z)?
 Three example of specific questions in this class are:
@@ -40,8 +40,8 @@ Three example of specific questions in this class are:
 * What businesses in New York have closing hours 8:00 with a rating of 3.5?
 * What businesses in Savannah have closing hours 9:00 with a rating of 4.5?
 
-## Andrew Krodinger: What's the most popular category (X) in state (Y)?
+## (Question template)
 Three example of specific questions in this class are:
-* What's the most popular category in Pennsylvania?
-* What's the most popular category in North Carolina?
-* What's the most popular category in Arizona?
+* (specific question)
+* (specific question)
+* (specific question)
