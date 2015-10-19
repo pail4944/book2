@@ -16,7 +16,7 @@
         <input id="arg3" type="text" value="4.0"/>
     </div>    
     <div><h5>Sort Option (None, Ascending, Descending))</h5>
-        <input id="arg4" type="text" value="None"/>
+        <input id="arg4" type="text" value="Descending"/>
     </div>    
     <div><h5>Day of Week (e.g., Wednesday)</h5>
         <input id="arg5" type="text" value="Wednesday"/>
