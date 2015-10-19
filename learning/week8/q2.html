@@ -68,7 +68,7 @@
     <body>
         <!-- body:start -->
         
-    <div class="book" data-level="1.2.3" data-basepath="../.." data-revision="Fri Oct 16 2015 18:05:47 GMT-0600 (MDT)">
+    <div class="book" data-level="1.2.3" data-basepath="../.." data-revision="Sun Oct 18 2015 22:13:51 GMT-0600 (MDT)">
     
 
 <div class="book-summary">
@@ -459,10 +459,125 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="individual-2-of-3">Individual 2 of 3</h1>
-<h2 id="-question-class">(Question class)</h2>
-<p>(fill in the rest to provide an interactive visualization interface for
-    this question class)</p>
+                        <h1 id="q2">Q2</h1>
+<h2 id="how-many-businesses-above-a-certain-star-threshold-are-there-in-each-city-in-a-certain-state-filtered-by-of-reviews">How many businesses above a certain star threshold are there in each city in a certain state? (filtered by # of reviews)</h2>
+<div style="border:1px grey solid; padding:5px;">
+    <div><h5>State</h5>
+        <input id="arg1" type="text" value="AZ">
+    </div>
+    <div><h5>Threshold</h5>
+        <input id="arg2" type="text" value="3.00">
+    </div>
+    <div><h5>Minimum # of Reviews</h5>
+        <input id="arg3" type="text" value="100">
+    </div>
+    <div style="margin:20px;">
+        <button id="viz">Vizualize</button>
+    </div>
+</div>
+
+<div class="myviz" style="width:100%; height:500px; border: 1px black solid; padding: 5px;">
+Data is not loaded yet
+</div>
+
+<p><pre><code>items = &apos;not loaded yet&apos;
+
+$.get(&apos;http://bigdatahci2015.github.io/data/yelp/yelp_academic_dataset_business.5000.json.lines.txt&apos;)
+    .success(function(data){
+        var lines = data.trim().split(&apos;\n&apos;)
+
+        // convert text lines to json arrays and save them in `items`
+        items = _.map(lines, JSON.parse)
+
+        console.log(&apos;number of items loaded:&apos;, items.length)
+        $(&apos;.myviz&apos;).html(&apos;number of records load:&apos; + items.length)
+        console.log(&apos;first item&apos;, items[0])
+     })
+     .error(function(e){
+         console.error(e)
+     })
+
+function viz(arg1, arg2, arg3){    
+
+    var tplString = &apos;&lt;g transform=&quot;translate(0 ${d.y})&quot;&gt; \
+                    &lt;rect x=&quot;0&quot;   \
+                         width=&quot;${d.width}&quot; \
+                         height=&quot;20&quot;    \
+                         style=&quot;fill:${d.color};    \
+                                stroke-width:3; \
+                                stroke:rgb(0,0,0)&quot; /&gt;   \
+		                 &lt;text x=&quot;${d.width}+20&quot; y=&quot;15&quot;&gt;${d.label}&lt;/text&gt; \
+                    &lt;/g&gt;&apos;
+
+    var template = _.template(tplString)
+
+    function computeX(d, i) {
+        return 0
+    }
+
+    function computeWidth(d, i) {
+        return d[1]*5
+    }
+
+    function computeY(d, i) {
+        return i * 20
+    }
+
+    function computeColor(d, i) {
+        return &apos;red&apos;
+    }
+
+    function computeLabel(d, i) {
+        return &quot;City: &quot; + d[0] + &quot;  #: &quot; + d[1]
+    }
+	
+    var filtered = _.filter(items, function(d){
+	   return (d.state == arg1)	
+    })
+    
+	filtered = _.filter(filtered, function(d){
+		return (d.stars &gt;= parseFloat(arg2))
+	})
+	
+	filtered = _.filter(filtered, function(d){
+		return (d.review_count &gt;= parseInt(arg3))
+	})
+	
+	var groups = _.groupBy(filtered, function(d){
+		return d.city
+	})
+	
+	groups = _.mapValues(groups, function(d){
+		return d.length
+	})
+	
+	var pairs = _.pairs(groups)
+
+    var viz = _.map(pairs, function(d, i){ 
+                return {
+                    x: computeX(d, i),
+                    y: computeY(d, i),
+                    width: computeWidth(d, i),
+                    color: computeColor(d, i),
+                    label: computeLabel(d, i)
+                }
+             })
+    console.log(&apos;viz&apos;, viz)
+
+    var result = _.map(viz, function(d){
+             return template({d: d})
+         })
+    console.log(&apos;result&apos;, result)
+
+    $(&apos;.myviz&apos;).html(&apos;&lt;svg width=&quot;100%&quot; height=&quot;100%&quot;&gt;&apos; + result + &apos;&lt;/svg&gt;&apos;)
+}
+
+$(&apos;button#viz&apos;).click(function(){    
+    var arg1 = $(&apos;input#arg1&apos;).val()
+    var arg2 = $(&apos;input#arg2&apos;).val()
+    var arg3 = $(&apos;input#arg3&apos;).val()
+    viz(arg1, arg2, arg3)
+})</code></pre><script>var code ="items = 'not loaded yet'\n\n$.get('http://bigdatahci2015.github.io/data/yelp/yelp_academic_dataset_business.5000.json.lines.txt')\n    .success(function(data){\n        var lines = data.trim().split('\\n')\n\n        // convert text lines to json arrays and save them in `items`\n        items = _.map(lines, JSON.parse)\n\n        console.log('number of items loaded:', items.length)\n        $('.myviz').html('number of records load:' + items.length)\n        console.log('first item', items[0])\n     })\n     .error(function(e){\n         console.error(e)\n     })\n\nfunction viz(arg1, arg2, arg3){    \n\n    var tplString = '<g transform=\"translate(0 ${d.y})\"> \\\n                    <rect x=\"0\"   \\\n                         width=\"${d.width}\" \\\n                         height=\"20\"    \\\n                         style=\"fill:${d.color};    \\\n                                stroke-width:3; \\\n                                stroke:rgb(0,0,0)\" />   \\\n\t\t                 <text x=\"${d.width}+20\" y=\"15\">${d.label}</text> \\\n                    </g>'\n\n    var template = _.template(tplString)\n\n    function computeX(d, i) {\n        return 0\n    }\n\n    function computeWidth(d, i) {\n        return d[1]*5\n    }\n\n    function computeY(d, i) {\n        return i * 20\n    }\n\n    function computeColor(d, i) {\n        return 'red'\n    }\n\n    function computeLabel(d, i) {\n        return \"City: \" + d[0] + \"  #: \" + d[1]\n    }\n\t\n    var filtered = _.filter(items, function(d){\n\t   return (d.state == arg1)\t\n    })\n    \n\tfiltered = _.filter(filtered, function(d){\n\t\treturn (d.stars >= parseFloat(arg2))\n\t})\n\t\n\tfiltered = _.filter(filtered, function(d){\n\t\treturn (d.review_count >= parseInt(arg3))\n\t})\n\t\n\tvar groups = _.groupBy(filtered, function(d){\n\t\treturn d.city\n\t})\n\t\n\tgroups = _.mapValues(groups, function(d){\n\t\treturn d.length\n\t})\n\t\n\tvar pairs = _.pairs(groups)\n\n    var viz = _.map(pairs, function(d, i){ \n                return {\n                    x: computeX(d, i),\n                    y: computeY(d, i),\n                    width: computeWidth(d, i),\n                    color: computeColor(d, i),\n                    label: computeLabel(d, i)\n                }\n             })\n    console.log('viz', viz)\n\n    var result = _.map(viz, function(d){\n             return template({d: d})\n         })\n    console.log('result', result)\n\n    $('.myviz').html('<svg width=\"100%\" height=\"100%\">' + result + '</svg>')\n}\n\n$('button#viz').click(function(){    \n    var arg1 = $('input#arg1').val()\n    var arg2 = $('input#arg2').val()\n    var arg3 = $('input#arg3').val()\n    viz(arg1, arg2, arg3)\n})"</script></p>
 
                     
                     </section>
