@@ -7,7 +7,7 @@ Practice what you just learned on the FCQ dataset.
 ### Group By
 
 <div style="border:1px grey solid; padding:5px;">
-<button id="viz-college">Gorup By College</button>
+<button id="viz-college">Group By College</button>
 </div>
 
 <div style="border:1px grey solid; padding:5px;">
@@ -24,7 +24,7 @@ Data is not loaded yet
 {% script %}
 fcqData = 'not loaded yet'
 
-$.get('/data/fcq.clean.json')
+$.get('http://pail4944.github.io/book2/data/fcq.clean.json')
  .success(function(data){
      console.log('data loaded', data)
      $('.myviz').html('number of records load:' + data.length)

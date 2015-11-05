@@ -48,7 +48,7 @@ Data is not loaded yet
 // pokemonData is a global variable
 pokemonData = 'not loaded yet'
 
-$.get('/data/pokemon-small.json')
+$.get('http://pail4944.github.io/book2/data/pokemon-small.json')
  .success(function(data){
      console.log('data loaded', data)
      $('.myviz').html('number of records load:' + data.length)

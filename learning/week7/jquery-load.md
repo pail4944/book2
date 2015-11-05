@@ -12,7 +12,7 @@
 
 $('button#load-pokemon').click(function(){    
 
-    $.get('/data/pokemon-small.json')
+    $.get('http://pail4944.github.io/book2/data/pokemon-small.json')
      .success(function(data){
          $('.myviz').html('number of records load:' + data.length)
      })
@@ -20,7 +20,7 @@ $('button#load-pokemon').click(function(){
 
 $('button#load-fcq').click(function(){    
 
-    $.get('/data/fcq.clean.json')
+    $.get('http://pail4944.github.io/book2/data/fcq.clean.json')
      .success(function(data){
          $('.myviz').html('number of records load:' + data.length)
      })
