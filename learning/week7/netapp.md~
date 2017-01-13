@@ -12,7 +12,7 @@ Tableau
 This report is prepared by
 * [William Farmer](http://github.com/willzfarmer)
 * [Kevin Gifford](http://github.com/kevinkgifford)
-* [Parker Illig](http://github.com/pail4944)
+* [Parker Illig](http://github.com/pillig)
 * [Robert Kendl](http://github.com/DomoYeti)
 * [Andrew Krodinger](http://github.com/drewdinger)
 * [John Raesly](http://github.com/jraesly)
@@ -71,7 +71,7 @@ We can then open the space-delimited 'netapp-2015' file with Excel and save as a
 The problem with the above graph is that the average deltatime is badly skewed by exorbinantly large deltatime values.  This is an area where additional scripts are required to filter the data in order to give meaningful visualizations.  However, at a glance the 'Galena' Release seems to have significantly more samples with exorbinantly large deltatimes than the 'Illinois' or the 'Kingston' Release.
 
 
-# [Parker Illig](http://github.com/pail4944): Is there a relationship between delta time and SW version?
+# [Parker Illig](http://github.com/pillig): Is there a relationship between delta time and SW version?
 
 ![screenshot](softwareavgmed.png)
 

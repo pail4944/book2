@@ -469,7 +469,7 @@ He shared a data problem for our class to help solve.</p>
 <ul>
 <li><a href="http://github.com/willzfarmer" target="_blank">William Farmer</a></li>
 <li><a href="http://github.com/kevinkgifford" target="_blank">Kevin Gifford</a></li>
-<li><a href="http://github.com/pail4944" target="_blank">Parker Illig</a></li>
+<li><a href="http://github.com/pillig" target="_blank">Parker Illig</a></li>
 <li><a href="http://github.com/DomoYeti" target="_blank">Robert Kendl</a></li>
 <li><a href="http://github.com/drewdinger" target="_blank">Andrew Krodinger</a></li>
 <li><a href="http://github.com/jraesly" target="_blank">John Raesly</a></li>
@@ -510,7 +510,7 @@ He shared a data problem for our class to help solve.</p>
 </code></pre><p>We can then open the space-delimited &apos;netapp-2015&apos; file with Excel and save as an Excel file just so we can read into Tableau.</p>
 <p><img src="Release-vs-Deltatime.png" alt="screenshot"></p>
 <p>The problem with the above graph is that the average deltatime is badly skewed by exorbinantly large deltatime values.  This is an area where additional scripts are required to filter the data in order to give meaningful visualizations.  However, at a glance the &apos;Galena&apos; Release seems to have significantly more samples with exorbinantly large deltatimes than the &apos;Illinois&apos; or the &apos;Kingston&apos; Release.</p>
-<h1 id="-parker-illig-http-github-com-pail4944-is-there-a-relationship-between-delta-time-and-sw-version"><a href="http://github.com/pail4944" target="_blank">Parker Illig</a>: Is there a relationship between delta time and SW version?</h1>
+<h1 id="-parker-illig-http-github-com-pillig-is-there-a-relationship-between-delta-time-and-sw-version"><a href="http://github.com/pillig" target="_blank">Parker Illig</a>: Is there a relationship between delta time and SW version?</h1>
 <p><img src="softwareavgmed.png" alt="screenshot"></p>
 <p>I would explain this as a question Tableau couldn&apos;t, or at least couldn&apos;t easily, visualize. The graph shows each group of software versions and gives each version two bars, the average delta time in blue and the average median time in orange. In order to show the median, which was much smaller than most averages, I had to use logarithmic scaling to get any kind of comparison between the two values. Most of the bars in the graph show their medians&apos; around the 24 hours mark, but averages usually were much greater than the mean due to the logarithmic scaling. This shows that most software versions had data points that were huge, meaning that each software version had significant issues. Due to these consistently bad results, I was unable to show any correlation between software version and delta time without using custom scripts to do more intensive filtering.</p>
 <h1 id="-robert-kendl-http-github-com-domoyeti-is-there-a-relationship-between-delta-time-and-fw-version"><a href="http://github.com/DomoYeti" target="_blank">Robert Kendl</a>:  Is there a relationship between delta time and FW version?</h1>
